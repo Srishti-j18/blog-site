@@ -1,6 +1,6 @@
 import { getCollection } from 'astro:content';
 import rss from '@astrojs/rss';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { SITE_DESCRIPTION, SITE_TITLE, withBase } from '../consts';
 
 export async function GET(context) {
 	const posts = await getCollection('blog');
@@ -10,7 +10,7 @@ export async function GET(context) {
 		site: context.site,
 		items: posts.map((post) => ({
 			...post.data,
-			link: `/blog-site/blog/${post.id}/`,
+			link: withBase(`blog/${post.id}/`),
 		})),
 	});
 }
