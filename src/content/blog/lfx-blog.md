@@ -94,7 +94,7 @@ The final blocker was:
 That error was important because it showed that the problem was not just missing packages anymore. It was a limitation of the current Prow node environment.
 
 
-At this point, I asked in SIG Testing and SIG K8s Infra to understand whether user namespaces could be enabled, or whether there was a supported node pool for this kind of workload. The discussion helped clarify that this was not something we should try to force immediately. The sig-Tesing Folks suggested that User namespace support is available in `Kubernetes v1.36`. [Kubernetes user namespaces documentation](https://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/)
+At this point, I asked in SIG Testing to understand whether user namespaces could be enabled, or whether there was a supported node pool for this kind of workload. The discussion helped clarify that this was not something we should try to force immediately. The sig-Tesing Folks suggested that User namespace support is available in `Kubernetes v1.36`. [Kubernetes user namespaces documentation](https://kubernetes.io/docs/concepts/workloads/pods/user-namespaces/)
 
 However, the current CI environment was not yet updated in a way that made user namespaces available for our use case, so rootless BuildKit remained blocked there.
 
